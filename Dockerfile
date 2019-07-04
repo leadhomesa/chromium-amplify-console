@@ -4,6 +4,7 @@ RUN apk update && apk upgrade && \
   echo @edge https://uk.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories && \
   echo @edge https://uk.alpinelinux.org/alpine/edge/main >> /etc/apk/repositories
 RUN apk add --no-cache \
+        libgconf-2-4 \
         nss@edge \
         chromium@edge \
         alsa-lib-devel \
