@@ -14,6 +14,6 @@ export DOCKER_TAG="chromium-amplify-console:${BUILD_NUMBER}"
 echo "+++ :package: Building version ${BUILD_NUMBER}"
 
 # Build docker image
-docker build -t ${DOCKER_TAG} --build-arg VERSION=${BUILD_NUMBER} --build-arg PUBLIC_URL=${PUBLIC_URL} .
+docker build -t ${DOCKER_TAG} .
 
 docker push ${DOCKER_TAG}
