@@ -10,3 +10,5 @@ RUN apk add --no-cache git
 RUN apk add --no-cache openssh
 
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
+
+ENTRYPOINT [ "bash", "-c" ]
