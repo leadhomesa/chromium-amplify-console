@@ -1,6 +1,5 @@
 FROM node:alpine
 
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
 RUN apk update && apk upgrade && \
   echo @edge https://uk.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories && \
   echo @edge https://uk.alpinelinux.org/alpine/edge/main >> /etc/apk/repositories
