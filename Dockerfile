@@ -10,5 +10,3 @@ RUN apk add --no-cache git
 RUN apk add --no-cache openssh
 
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
-WORKDIR /app
-RUN npm install puppeteer@1.14.0
