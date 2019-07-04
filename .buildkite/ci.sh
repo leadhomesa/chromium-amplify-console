@@ -12,10 +12,10 @@ git reset --hard
 # Run gitversion, mounting the repo root folder. Export the result as BUILD_NUMBER
 docker run -v "$(pwd):/repo" gittools/gitversion-dotnetcore:linux /repo
 export BUILD_NUMBER=$(docker run -v "$(pwd):/repo" gittools/gitversion-dotnetcore:linux /repo | jq -r ".LegacySemVer")
-export DOCKER_TAG="${DOCKER_REPO}:${BUILD_NUMBER} ${DOCKER_REPO}:latest"
+export DOCKER_TAG="${DOCKER_REPO}:${BUILD_NUMBER}"
 echo "+++ :package: Building version ${BUILD_NUMBER}"
 
 # Build docker image
-docker build -t ${DOCKER_TAG} .
+docker build -t ${DOCKER_TAG} -t ${DOCKER_REPO}:latest .
 
 docker push ${DOCKER_REPO}
