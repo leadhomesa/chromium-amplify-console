@@ -1,19 +1,18 @@
-FROM node:alpine
+FROM node:12
 
-RUN apk update && apk upgrade && \
-  echo @edge https://uk.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories && \
-  echo @edge https://uk.alpinelinux.org/alpine/edge/main >> /etc/apk/repositories
-RUN apk add --no-cache \
-        nss@edge \
-        chromium@edge \
+RUN apt-get update -y && apt-get upgrade -y
+
+RUN apt-get install \
+        libcurl3-nss -y \
+        chromium \
         bash \
         curl \
         git \
         openssl \
-        openssh \
+        openssh-client \
         python3 \
-        wget \
-        which
+        wget
+RUN npm install -g @aws-amplify/cli
 
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 
